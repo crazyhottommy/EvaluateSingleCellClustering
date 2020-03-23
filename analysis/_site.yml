@@ -1,7 +1,7 @@
-name: "EvaluateSingleCellClustering"
+name: EvaluateSingleCellClustering
 output_dir: ../docs
 navbar:
-  title: "EvaluateSingleCellClustering"
+  title: EvaluateSingleCellClustering
   left:
   - text: Home
     href: index.html
@@ -11,12 +11,14 @@ navbar:
     menu:
     - text: single cell mixology
       href: mixture_tidy_idents.html
+    - text: 5k pbmc
+      href: 5k_pbmc.html
   - text: License
     href: license.html
   right:
   - icon: fa-github
     text: Source code
-    href: https://github.com/crazyhottommy/scRNA-seq-workshop-Fall-2019
+    href: https://github.com/crazyhottommy/EvaluateSingleCellClustering
 output:
   workflowr::wflow_html:
     toc: yes
