@@ -14,7 +14,7 @@ works with the output from the [Snakemake workflow](https://github.com/crazyhott
 Readers can download the datasets at https://osf.io/rfbcg/ and 
 follow the analysis in the Rmarkdown files.
 
-* The 5k pbmc scRNAseq dataset was downloaded from 10x website and made into a `Seruat` object.
+* The 5k pbmc scRNAseq dataset was downloaded from [10x website](https://support.10xgenomics.com/single-cell-gene-expression/datasets/3.0.2/5k_pbmc_v3) and made into a `Seruat` object.
 
 * The Seurat rds file for the 5- cancer cell line mixology dataset is dowloaded from https://github.com/LuyiTian/sc_mixology
 
