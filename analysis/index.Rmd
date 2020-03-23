@@ -8,7 +8,15 @@ editor_options:
   chunk_output_type: console
 ---
 
-This is the website for demonstrating how to use the [`scclusteval`](https://github.com/crazyhottommy/scclusteval) R pacakge.
+This is the website for demonstrating how to use the [`scclusteval`](https://github.com/crazyhottommy/scclusteval) R package. This R package
+works with the output from the [Snakemake workflow](https://github.com/crazyhottommy/pyflow_seuratv3_parameter)
 
-Three datasets are used. Readers can download them at https://osf.io/rfbcg/ and 
+Readers can download the datasets at https://osf.io/rfbcg/ and 
 follow the analysis in the Rmarkdown files.
+
+You can find the analysis for the mixology dataset and the 5k pbmc dataset in
+the `Content` drop list. We also run the [Snakemake workflow](https://github.com/crazyhottommy/pyflow_seuratv3_parameter) for a neuron dataset
+from Allen Brain Institute and you can find the data in the [osf.io](https://osf.io/rfbcg/) link above.
+
+Readers can follow the examples of the mixology and pbmc dataset and explore the 
+neuron dataset yourself. Have fun!
