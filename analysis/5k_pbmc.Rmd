@@ -1,0 +1,249 @@
+---
+title: "5k pbmc dataset"
+output: html_document
+---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+## 5k pbmc dataset
+
+The 5k pbmc scRNAseq dataset was downloaded from 10x website and made into a `Seruat` object.
+The labels of 5k data were transferred using Seurat from 10k data following
+https://crazyhottommy.github.io/scRNA-seq-workshop-Fall-2019/scRNAseq_workshop_2.html
+
+
+We next run our snakemake pipeline and visualize the results in our R package for the 5k PBMC dataset retrieved from 10x genomics website. We tested combinations of 8 different k.param(8,10,15,20,30,50,80,100), 5 different resolutions (0.5,0.6,0.8,1,1.2) and 5 different number of PCs (10,15,20,30,35) resulting 200 different parameter sets.
+
+To follow the analysis, you can download the data at [osf.io](https://osf.io/rfbcg/)
+
+```{r}
+library(scclusteval)
+library(tidyverse)
+library(patchwork)
+library(Seurat)
+library(dplyr)
+
+# read in the seurat object
+# the label transferring was done following
+pbmc<- readRDS("data/pbmc_5k_v3_label_transfered_from_10k.rds")
+
+subsample_idents<- readRDS("data/pbmc/gather_subsample.rds")
+
+fullsample_idents<- readRDS("data/pbmc/gather_full_sample.rds")
+```
+
+### explore full dataset
+
+```{r }
+## how many PCs to include
+ElbowPlot(pbmc, ndims = 40)
+
+# a tibble with a list column
+fullsample_idents
+
+## how many clusters for each different comibination of parameter set?
+fullsample_idents %>%
+  mutate(cluster_num = purrr::map_dbl(original_ident_full, ~length(unique(.x))))
+# what's the relationship of clusters between k_param 8, 20 and 30 with same pc=20 and resolution = 0.6
+
+fullsample_idents %>% mutate(id = row_number()) %>%
+  filter(pc == 20, resolution == 0.6, k_param == 8) 
+
+fullsample_idents %>% mutate(id = row_number()) %>%
+  filter(pc == 20, resolution == 0.6, k_param == 20) 
+
+fullsample_idents %>% mutate(id = row_number()) %>%
+  filter(pc == 20, resolution == 0.6, k_param == 100)
+
+## x-axis is k_param = 20, and y-axis is k_param = 8
+PairWiseJaccardSetsHeatmap(fullsample_idents$original_ident_full[[8]],
+                           fullsample_idents$original_ident_full[[83]],
+                           show_row_dend = F, show_column_dend = F,
+                           cluster_row = F, cluster_column =F)
+
+## x-axis is k_param = 100, and y-axis is k_param = 8
+PairWiseJaccardSetsHeatmap(fullsample_idents$original_ident_full[[8]],
+                           fullsample_idents$original_ident_full[[183]],
+                           show_row_dend = F, show_column_dend = F,
+                           cluster_row = F, cluster_column =F)
+```
+
+The k.param in the k-nearest neighbor algorithm after which a SNN graph is constructed. This parameter determines the resolution of the clustering where a bigger k yields a more interconnected graph and bigger clusters. We see if we increase the k param to 100, we get fewer number of total number of clusters.
+
+
+Let's check how the clusters are splitting when we increase the k.param.
+
+**Note** for 5k pbmc dataset, I used `SCTransform()` in the Snakemake workflow. It generates more clusters
+than the previous NormalizeData(), ScaleData(), and FindVariableFeatures() workflow.
+
+```{r}
+
+k8_ident<- fullsample_idents %>%
+  filter(pc == 20, resolution == 0.6, k_param == 8)  %>%
+  pull(original_ident_full) %>%
+  `[[`(1)
+
+pbmc<- AddMetaData(pbmc, metadata = k8_ident, col.name = "res0.6_k8")
+
+k20_ident<- fullsample_idents %>%
+  filter(pc == 20, resolution == 0.6, k_param == 20)  %>%
+  pull(original_ident_full) %>%
+  `[[`(1)
+pbmc<- AddMetaData(pbmc, metadata = k20_ident, col.name = "res0.6_k20")
+
+k100_ident<- fullsample_idents %>%
+  filter(pc == 20, resolution == 0.6, k_param == 100)  %>%
+  pull(original_ident_full) %>%
+  `[[`(1)
+
+pbmc<- AddMetaData(pbmc, metadata = k100_ident, col.name = "res0.6_k100")
+
+
+p1<- DimPlot(pbmc, reduction = "umap", label = TRUE, group.by = "res0.6_k8", repel = TRUE) + ggtitle("k_param 8")
+
+p2<- DimPlot(pbmc, reduction = "umap", label = TRUE, group.by = "res0.6_k20", repel = TRUE) + ggtitle("k_param 20")
+
+p3<- DimPlot(pbmc, reduction = "umap", label = TRUE, group.by = "res0.6_k100", repel = TRUE) + ggtitle("k_param 100")
+
+p4<- DimPlot(pbmc, reduction = "umap", group.by = "predicted.id", repel = TRUE, label = TRUE) 
+
+p1 + p2 + p3 + p4
+```
+
+
+```{r}
+# k = 8
+PairWiseJaccardSetsHeatmap(set_names(pbmc@meta.data$res0.6_k8, nm=colnames(pbmc)),
+                           set_names(pbmc@meta.data$predicted.id, nm=colnames(pbmc)),
+                           show_row_dend = F, show_column_dend = F,
+                           cluster_row = F, cluster_column =F)
+
+## we can check agains the transferred labels. k =20
+PairWiseJaccardSetsHeatmap(set_names(pbmc@meta.data$res0.6_k20, nm=colnames(pbmc)),
+                           set_names(pbmc@meta.data$predicted.id, nm=colnames(pbmc)),
+                           show_row_dend = F, show_column_dend = F,
+                           cluster_row = F, cluster_column =F)
+
+
+PairWiseJaccardSetsHeatmap(set_names(pbmc@meta.data$res0.6_k100, nm=colnames(pbmc)),
+                           set_names(pbmc@meta.data$predicted.id, nm=colnames(pbmc)),
+                           show_row_dend = F, show_column_dend = F,
+                           cluster_row = F, cluster_column =F)
+```
+
+Note that, the transferred cell type from 10k pbmc data to our 5k data may not necessary be the true labels. Nevetherless, when the k_param is big (100), many cell types are merged together.
+
+### Some other visualizations 
+
+```{r}
+
+## change idents to cluster id when k is 8
+Idents(pbmc)<- pbmc@meta.data$res0.6_k8
+
+silhouette_scores<- CalculateSilhouette(pbmc, dims = 1:20)
+
+sil_p1<- SilhouetteRainCloudPlot(silhouette_scores) + ggtitle("k_param 8")
+
+## check silhouette score when k is 20
+Idents(pbmc)<- pbmc@meta.data$res0.6_k20
+silhouette_scores<- CalculateSilhouette(pbmc, dims = 1:20)
+sil_p2<- SilhouetteRainCloudPlot(silhouette_scores) + ggtitle("k_param 20")
+
+sil_p1 / sil_p2
+```
+                           
+cluster 6 (when k_param is 8) split into cluster7,12 when k_param is 20 from the jaccard heatmap above. 
+
+The silhouette width for cluster7,12 is lower than cluster 6 suggesting that k_param=8 is a better option.
+
+## explore the subsampled data
+
+### Jaccard Raincloud plot for different resolutions
+
+```{r}
+
+subsample_idents_list<- subsample_idents %>% 
+  group_by(pc, resolution, k_param) %>% 
+  nest()
+
+subsample_idents_list %>% ungroup() %>% mutate(id = row_number()) %>%
+  filter(pc == 20, resolution == 0.6, k_param == 8)
+
+subsample_idents_list %>% ungroup() %>% mutate(id = row_number()) %>%
+  filter(pc == 20, resolution == 0.6, k_param == 20)
+
+## subsample for 100 times(rounds)
+subsample_idents_list$data[[8]]
+
+p1<- JaccardRainCloudPlot(subsample_idents_list$data[[8]]$original_ident,
+                          subsample_idents_list$data[[8]]$recluster_ident) + 
+        geom_hline(yintercept = c(0.6, 0.75), linetype = 2) +
+        xlab("cluster id w/ k=8 res=0.6 pc=20") 
+
+p2<- JaccardRainCloudPlot(subsample_idents_list$data[[83]]$original_ident,
+                          subsample_idents_list$data[[83]]$recluster_ident) + 
+        geom_hline(yintercept = c(0.6, 0.75), linetype = 2) +
+        xlab("cluster id w/ k=20 res=0.6 pc=20")
+
+p1 / p2        
+```
+
+
+From the Jaccard raincloud plot, cluster7 and cluster12 have very low jaccard index. This is consistent with the Silhouette widths.
+
+### Assign stable clusters
+
+As a rule of thumb, clusters with a mean/median stability score less than 0.6 should be considered unstable. scores between 0.6 and 0.75 indicate that the cluster is measuring a pattern in the data. clusters with stability score greater than 0.85 are highly stable (Zumel and Mount 2014). This task can be achieved using AssignStableCluster function in our R package. We observed for some datasets, the jaccard index follows  a bimodal distribution, so the mean or median may not be representative. As an alternative, we also calculate the percentage of subsampling with a jaccard greater than a cutoff (e.g. 0.85), which can be used to check stability assessments.
+
+
+```{r}
+## return a list
+## ?AssignStableCluster
+AssignStableCluster(subsample_idents_list$data[[55]]$original_ident,
+                    subsample_idents_list$data[[55]]$recluster_ident,
+                    jaccard_cutoff = 0.8,
+                    method = "jaccard_percent", 
+                    percent_cutoff = 0.8)
+
+# ?AssignStableCluster
+## for all sets of parameters
+stable_clusters<- subsample_idents_list %>%
+  mutate(stable_cluster = map(data, ~ AssignStableCluster(.x$original_ident,
+                                                          .x$recluster_ident,
+                                                          jaccard_cutoff = 0.8,
+                                                          method = "jaccard_percent", 
+                                                          percent_cutoff = 0.8)))
+```
+
+### plot scatter plot for different parameters sets 
+
+with y axis representing the number of stable clusters and total number of clusters.
+
+```{r}
+ParameterSetScatterPlot(stable_clusters = stable_clusters,
+                        fullsample_idents = fullsample_idents,
+                        x_var = "k_param",
+                        y_var = "number",
+                        facet_rows = "resolution",
+                        facet_cols = "pc")
+```
+
+
+### plot percentage cells in stable cluster
+
+The `ParameterSetScatterPlot` function will calculate the percentage of cells in stable clusters
+and plot a scatter/line plot.
+
+```{r}
+ParameterSetScatterPlot(stable_clusters = stable_clusters,
+                        fullsample_idents = fullsample_idents,
+                        x_var = "k_param",
+                        y_var = "percentage",
+                        facet_rows = "resolution",
+                        facet_cols = "pc") +
+  ggtitle("percentage of cells in stable clusters")
+```
+

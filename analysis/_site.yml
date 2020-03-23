@@ -7,11 +7,19 @@ navbar:
     href: index.html
   - text: About
     href: about.html
+  - text: Content
+    menu:
+    - text: single cell mixology
+      href: mixture_tidy_idents.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/crazyhottommy/scRNA-seq-workshop-Fall-2019
 output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: cosmo
+    theme: flatly
     highlight: textmate

@@ -7,4 +7,4 @@ editor_options:
   chunk_output_type: console
 ---
 
-Describe your project.
+This is the website for demonstrating how to use the [`scclusteval`](https://github.com/crazyhottommy/scclusteval) R pacakge.
