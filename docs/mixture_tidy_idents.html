@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>mixture control dataset</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">EvaluateSingleCellClustering</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Content
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="mixture_tidy_idents.html">single cell mixology</a>
+    </li>
+    <li>
+      <a href="5k_pbmc.html">5k pbmc</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/crazyhottommy/scRNA-seq-workshop-Fall-2019">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">mixture control dataset</h1>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-03-23
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>EvaluateSingleCellClustering/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.4.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200322code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200322)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200322code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200322)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongefeef5e"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> efeef5e </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongefeef5e" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rproj.user/
+    Ignored:    data/simulated_data/
+
+Untracked files:
+    Untracked:  data/%
+    Untracked:  data/allen_mouse_brain/
+    Untracked:  data/intermediate_data/
+    Untracked:  data/pbmc/
+    Untracked:  data/pbmc_5k_v3.rds
+    Untracked:  data/pbmc_5k_v3_label_transfered_from_10k.rds
+    Untracked:  data/sc_mixology/
+    Untracked:  docs/figure/
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+    Modified:   analysis/index.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="mixture-control-dataset" class="section level3">
+<h3>mixture control dataset</h3>
+<p>To demonstrate the utility of the R package, we run the Snakemake pipeline on a <a href="https://github.com/LuyiTian/sc_mixology">single-cell RNAseq dataset</a> which contains cells from 5 cancer cell lines mixed together: A549, H1975, H2228, H838 and HCC827 (Tian et al. 2019). We tested the combination of 6 different k.param (10,20,30,60,80,100), 7 different resolutions (0.001,0.005,0.01,0.05,0.1,0.2,0.3) and 5 different number of PCs (3,5,7,10,15) to retain after dimension reduction resulting in a total of 210 different parameter sets.</p>
+<p>To follow the analysis, you can download the data at <a href="https://osf.io/rfbcg/">osf.io</a></p>
+<pre class="r"><code>library(scclusteval)
+library(tidyverse)
+library(patchwork)
+library(Seurat)
+
+# read in the seurat object
+sc_10x_5cl_seurat&lt;- readRDS(&quot;data/sc_mixology/sc_10x_5cl_seruat.rds&quot;)
+
+subsample_idents&lt;- readRDS(&quot;data/sc_mixology/gather_subsample.rds&quot;)
+
+fullsample_idents&lt;- readRDS(&quot;data/sc_mixology/gather_full_sample.rds&quot;)</code></pre>
+</div>
+<div id="explore-full-dataset" class="section level3">
+<h3>explore full dataset</h3>
+<pre class="r"><code>## how many PCs to include
+ElbowPlot(sc_10x_5cl_seurat)</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># a tibble with a list column
+fullsample_idents</code></pre>
+<pre><code># A tibble: 210 x 4
+   pc    resolution k_param original_ident_full
+   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;list&gt;             
+ 1 3     0.001      10      &lt;fct [3,918]&gt;      
+ 2 5     0.001      10      &lt;fct [3,918]&gt;      
+ 3 7     0.001      10      &lt;fct [3,918]&gt;      
+ 4 10    0.001      10      &lt;fct [3,918]&gt;      
+ 5 15    0.001      10      &lt;fct [3,918]&gt;      
+ 6 3     0.005      10      &lt;fct [3,918]&gt;      
+ 7 5     0.005      10      &lt;fct [3,918]&gt;      
+ 8 7     0.005      10      &lt;fct [3,918]&gt;      
+ 9 10    0.005      10      &lt;fct [3,918]&gt;      
+10 15    0.005      10      &lt;fct [3,918]&gt;      
+# … with 200 more rows</code></pre>
+<pre class="r"><code># what&#39;s the relationship of clusters between resolution 0.05, 0.1 and 0.3 with the same and k_param
+
+fullsample_idents %&gt;% mutate(id = row_number()) %&gt;%
+  filter(pc == 15, resolution == 0.05, k_param == 20)</code></pre>
+<pre><code># A tibble: 1 x 5
+  pc    resolution k_param original_ident_full    id
+  &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;list&gt;              &lt;int&gt;
+1 15    0.05       20      &lt;fct [3,918]&gt;          55</code></pre>
+<pre class="r"><code>fullsample_idents %&gt;% mutate(id = row_number()) %&gt;%
+  filter(pc == 15, resolution == 0.1, k_param == 20)</code></pre>
+<pre><code># A tibble: 1 x 5
+  pc    resolution k_param original_ident_full    id
+  &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;list&gt;              &lt;int&gt;
+1 15    0.1        20      &lt;fct [3,918]&gt;          60</code></pre>
+<pre class="r"><code>fullsample_idents %&gt;% mutate(id = row_number()) %&gt;%
+  filter(pc == 15, resolution == 0.3, k_param == 20)</code></pre>
+<pre><code># A tibble: 1 x 5
+  pc    resolution k_param original_ident_full    id
+  &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;list&gt;              &lt;int&gt;
+1 15    0.3        20      &lt;fct [3,918]&gt;          70</code></pre>
+<pre class="r"><code>## x-axis is resolution of 0.1, and y-axis is resolution of 0.05
+PairWiseJaccardSetsHeatmap(fullsample_idents$original_ident_full[[55]],
+                           fullsample_idents$original_ident_full[[60]],
+                           show_row_dend = F, show_column_dend = F,
+                           cluster_row = F, cluster_column =F)</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;" /> cluster 4 split into cluster 4 and cluster 6 cluster 0 split into cluster 0 and 5</p>
+<pre class="r"><code>## x-axis is resolution of 0.3, and y-axis is resolution of 0.05
+PairWiseJaccardSetsHeatmap(fullsample_idents$original_ident_full[[55]],
+                           fullsample_idents$original_ident_full[[70]],
+                           show_row_dend = F, show_column_dend = F,
+                           cluster_row = F, cluster_column =F)</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /> cluster 4 split into cluster 4,7 cluster 2 split into cluster 2,8 cluster 1 split into cluster 1,5</p>
+<pre class="r"><code>## x-axis is resolution of 0.3, and y-axis is resolution of 0.1
+PairWiseJaccardSetsHeatmap(fullsample_idents$original_ident_full[[60]],
+                           fullsample_idents$original_ident_full[[70]],
+                           show_row_dend = F, show_column_dend = F,
+                           cluster_row = F, cluster_column =F)</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We see as we increase the resolution, the number of clusters increase.</p>
+<p>Let’s check how the clusters are splitting when we increase the resolution.</p>
+<pre class="r"><code>## PC= 15, k.param = 20, resolution = 0.05
+sc_10x_5cl_seurat&lt;- 
+  FindNeighbors(sc_10x_5cl_seurat, dims = 1:15, k.param = 20) %&gt;%
+  FindClusters(resolution = 0.05)</code></pre>
+<pre><code>Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+
+Number of nodes: 3918
+Number of edges: 125427
+
+Running Louvain algorithm...
+Maximum modularity in 10 random starts: 0.9883
+Number of communities: 5
+Elapsed time: 0 seconds</code></pre>
+<pre class="r"><code>sc_10x_5cl_seurat&lt;- 
+  FindNeighbors(sc_10x_5cl_seurat, dims = 1:15, k.param = 20) %&gt;%
+  FindClusters(resolution = 0.1)</code></pre>
+<pre><code>Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+
+Number of nodes: 3918
+Number of edges: 125427
+
+Running Louvain algorithm...
+Maximum modularity in 10 random starts: 0.9777
+Number of communities: 7
+Elapsed time: 0 seconds</code></pre>
+<pre class="r"><code>sc_10x_5cl_seurat&lt;- 
+  FindNeighbors(sc_10x_5cl_seurat, dims = 1:15, k.param = 20) %&gt;%
+  FindClusters(resolution = 0.3) </code></pre>
+<pre><code>Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+
+Number of nodes: 3918
+Number of edges: 125427
+
+Running Louvain algorithm...
+Maximum modularity in 10 random starts: 0.9440
+Number of communities: 9
+Elapsed time: 0 seconds</code></pre>
+<pre class="r"><code>p1&lt;- DimPlot(sc_10x_5cl_seurat, reduction = &quot;umap&quot;, label = TRUE, group.by = &quot;RNA_snn_res.0.05&quot;) + ggtitle(&quot;res 0.05&quot;)
+
+p2&lt;- DimPlot(sc_10x_5cl_seurat, reduction = &quot;umap&quot;, label = TRUE, group.by = &quot;RNA_snn_res.0.1&quot;) + ggtitle(&quot;res 0.1&quot;)
+
+p3&lt;- DimPlot(sc_10x_5cl_seurat, reduction = &quot;umap&quot;, label = TRUE, group.by = &quot;RNA_snn_res.0.3&quot;) + ggtitle(&quot;res 0.3&quot;)
+
+p4&lt;- DimPlot(sc_10x_5cl_seurat, reduction = &quot;umap&quot;, group.by = &quot;cell_line&quot;, label = TRUE) 
+
+p1 + p2 + p3 + p4</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="some-other-visualizations" class="section level3">
+<h3>Some other visualizations</h3>
+<pre class="r"><code>## cluster number for each set of parameter
+purrr::map_dbl(fullsample_idents$original_ident_full, function(x) length(unique(x)))</code></pre>
+<pre><code>  [1]  3  5  4  4  4  4  5  5  5  5  4  5  5  5  5  5  5  5  5  6  5  6  7
+ [24]  6  8  8  8 11  9 10 12 10 13 13 12  2  3  3  3  3  3  4  4  4  4  4
+ [47]  5  5  5  5  4  5  5  5  5  5  5  5  5  7  5  7  7  7  8  6  8  9  9
+ [70]  9  2  3  2  4  4  4  5  5  5  5  4  5  5  5  5  4  5  5  5  5  5  5
+ [93]  5  5  5  5  5  7  7  7  5  8  7  7  9  2  3  3  4  4  4  5  5  5  5
+[116]  4  5  5  5  5  4  5  5  5  5  4  5  5  5  5  5  5  6  5  5  5  6  6
+[139]  7  7  2  3  3  3  3  4  5  5  5  5  4  5  5  5  5  4  5  5  5  5  4
+[162]  5  5  5  5  5  5  5  5  5  5  5  6  5  5  2  3  3  3  3  4  5  5  5
+[185]  5  4  5  5  5  5  4  5  5  5  5  4  5  5  5  5  5  5  5  5  5  5  5
+[208]  6  5  5</code></pre>
+<pre class="r"><code>## how many cells identity change from one cluster to another
+ClusterIdentityChordPlot(fullsample_idents$original_ident_full[[55]],
+                           fullsample_idents$original_ident_full[[60]])</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>## cluster size plot
+ClusterSizeBarplot(fullsample_idents$original_ident_full[[55]]) +
+  theme_classic()</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-6-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>## change idents to cluster id when resolution is 0.1
+Idents(sc_10x_5cl_seurat)&lt;- sc_10x_5cl_seurat@meta.data$RNA_snn_res.0.1
+
+CalculateSilhouette(sc_10x_5cl_seurat, dims = 1:15) %&gt;% head()</code></pre>
+<pre><code># A tibble: 6 x 3
+  cluster width cell       
+  &lt;fct&gt;   &lt;dbl&gt; &lt;chr&gt;      
+1 3       0.461 Lib90_00000
+2 3       0.471 Lib90_00001
+3 1       0.464 Lib90_00002
+4 3       0.585 Lib90_00003
+5 3       0.531 Lib90_00004
+6 3       0.355 Lib90_00005</code></pre>
+<pre class="r"><code>silhouette_scores&lt;- CalculateSilhouette(sc_10x_5cl_seurat, dims = 1:15)
+
+sil_p1&lt;- SilhouetteRainCloudPlot(silhouette_scores)
+
+## check silhouette score with resolution 0.05
+Idents(sc_10x_5cl_seurat)&lt;- sc_10x_5cl_seurat@meta.data$RNA_snn_res.0.05
+silhouette_scores&lt;- CalculateSilhouette(sc_10x_5cl_seurat, dims = 1:15)
+sil_p2&lt;- SilhouetteRainCloudPlot(silhouette_scores)
+
+sil_p1 + sil_p2</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-6-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>From the jaccard heatmap we know that: cluster 4 split (res = 0.05) into cluster 4 and cluster 6 (res = 0.1) cluster 0 split (res = 0.05) into cluster 0 and 5 (res = 0.1)</p>
+<p>cluster 0 and cluster 5 have on average smaller silhouette score than the original cluster 0, suggesting that it is not a good idea to split A549 cells.</p>
+<p>cluster 4 and 6 seems to have a higher silhouette score than the orignal cluster 4, suggesting that H1975 cells can be future split into two subclusters. From the <code>UMAP</code> plot, it does suggest cluster 4 and 6 are seperated.</p>
+</div>
+<div id="explore-the-subsampled-data" class="section level2">
+<h2>explore the subsampled data</h2>
+<pre class="r"><code># a tibble with two list columns, note that the ident number is 80% of the full dataset
+subsample_idents</code></pre>
+<pre><code># A tibble: 21,000 x 6
+   pc    resolution k_param original_ident recluster_ident round
+   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;list&gt;         &lt;list&gt;          &lt;chr&gt;
+ 1 3     0.001      10      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   0    
+ 2 3     0.001      10      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   1    
+ 3 3     0.001      10      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   2    
+ 4 3     0.001      10      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   3    
+ 5 3     0.001      10      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   4    
+ 6 3     0.001      10      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   5    
+ 7 3     0.001      10      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   6    
+ 8 3     0.001      10      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   7    
+ 9 3     0.001      10      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   8    
+10 3     0.001      10      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   9    
+# … with 20,990 more rows</code></pre>
+<pre class="r"><code>## check for one of the subsample experiment, the cell identities 
+## should be the same before and after clustering, but the cluster identities 
+## should be different
+
+subsample_idents %&gt;% mutate(id = row_number()) %&gt;%
+  filter(pc == 15, resolution == 0.05, k_param == 20)</code></pre>
+<pre><code># A tibble: 100 x 7
+   pc    resolution k_param original_ident recluster_ident round    id
+   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;list&gt;         &lt;list&gt;          &lt;chr&gt; &lt;int&gt;
+ 1 15    0.05       20      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   0      5401
+ 2 15    0.05       20      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   1      5402
+ 3 15    0.05       20      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   2      5403
+ 4 15    0.05       20      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   3      5404
+ 5 15    0.05       20      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   4      5405
+ 6 15    0.05       20      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   5      5406
+ 7 15    0.05       20      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   6      5407
+ 8 15    0.05       20      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   7      5408
+ 9 15    0.05       20      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   8      5409
+10 15    0.05       20      &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   9      5410
+# … with 90 more rows</code></pre>
+<pre class="r"><code>identical(names(subsample_idents$original_ident[[5401]]), names(subsample_idents$recluster_ident[[5401]]))</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<pre class="r"><code>table(subsample_idents$original_ident[[5401]])</code></pre>
+<pre><code>
+   0    1    2    3    4 
+1003  715  609  460  347 </code></pre>
+<pre class="r"><code>table(subsample_idents$recluster_ident[[5401]])</code></pre>
+<pre><code>
+   0    1    2    3    4 
+1003  719  609  457  346 </code></pre>
+<div id="jaccard-raincloud-plot-for-different-resolutions" class="section level3">
+<h3>Jaccard Raincloud plot for different resolutions</h3>
+<pre class="r"><code>subsample_idents_list&lt;- subsample_idents %&gt;% 
+  group_by(pc, resolution, k_param) %&gt;% 
+  nest()
+
+subsample_idents_list %&gt;% ungroup() %&gt;% mutate(id = row_number()) %&gt;%
+  filter(pc == 15, resolution == 0.05, k_param == 20)</code></pre>
+<pre><code># A tibble: 1 x 5
+  pc    resolution k_param data                  id
+  &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;list&gt;             &lt;int&gt;
+1 15    0.05       20      &lt;tibble [100 × 3]&gt;    55</code></pre>
+<pre class="r"><code>subsample_idents_list$data[[55]]</code></pre>
+<pre><code># A tibble: 100 x 3
+   original_ident recluster_ident round
+   &lt;list&gt;         &lt;list&gt;          &lt;chr&gt;
+ 1 &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   0    
+ 2 &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   1    
+ 3 &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   2    
+ 4 &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   3    
+ 5 &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   4    
+ 6 &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   5    
+ 7 &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   6    
+ 8 &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   7    
+ 9 &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   8    
+10 &lt;fct [3,134]&gt;  &lt;fct [3,134]&gt;   9    
+# … with 90 more rows</code></pre>
+<pre class="r"><code>## for the n times repeating, matching the clusters before and after reclustering
+## and assign the jaccard for that cluster
+AssignHighestJaccard(subsample_idents_list$data[[55]]$original_ident, 
+                     subsample_idents_list$data[[55]]$recluster_ident)</code></pre>
+<pre><code># A tibble: 100 x 5
+     `0`   `1`   `2`   `3`   `4`
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 0.998 0.994     1 0.993 0.997
+ 2 1     0.999     1 0.998 1    
+ 3 0.999 1         1 0.998 1    
+ 4 0.997 0.994     1 0.989 1    
+ 5 0.998 0.997     1 0.996 1    
+ 6 0.999 0.999     1 1     1    
+ 7 0.999 1         1 0.998 1    
+ 8 0.998 0.997     1 0.992 1    
+ 9 0.999 1         1 0.998 1    
+10 0.999 1         1 0.998 1    
+# … with 90 more rows</code></pre>
+<pre class="r"><code>JaccardRainCloudPlot(subsample_idents_list$data[[55]]$original_ident,
+                          subsample_idents_list$data[[55]]$recluster_ident) + 
+        geom_hline(yintercept = c(0.6, 0.75), linetype = 2) +
+        xlab(&quot;cluster id w/ k=20 res=0.1 pc=15&quot;) </code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>with resolution of 0.05, Seurat finds 5 clusters which is optimal given that 5 cancer cell lines were mixed together. The jaccard indices are close to 1 for all clusters after subsampling and reclustering suggesting all 5 clusters are quite stable.</p>
+</div>
+<div id="make-a-raincloud-plot-for-every-combination-of-the-parameters." class="section level3">
+<h3>make a Raincloud plot for every combination of the parameters.</h3>
+<pre class="r"><code>subsample_idents_list2&lt;- subsample_idents_list %&gt;%
+  mutate(plot = map(data, ~JaccardRainCloudPlot(.x$original_ident, .x$recluster_ident) + geom_hline(yintercept = c(0.6, 0.75), linetype = 2)))
+
+
+p1&lt;- subsample_idents_list2 %&gt;% 
+  filter(resolution == 0.05, pc == 15, k_param ==20) %&gt;%
+  pull(plot) %&gt;% `[[`(1)  + ggtitle(&quot;resolution = 0.05, pc = 15, k.param = 20&quot;)
+
+p2&lt;- subsample_idents_list2 %&gt;% 
+  filter(resolution == 0.1, pc == 15, k_param ==20) %&gt;%
+  pull(plot) %&gt;% `[[`(1)  + ggtitle(&quot;resolution = 0.1, pc = 15, k.param = 20&quot;)
+
+
+p1/ p2</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>## to save to disk, give a name for each pdf
+## subsample_idents_list2&lt;- mutate(subsample_idents_list2, file_name = 
+##                                 paste0(&quot;PC_&quot;,pc, &quot;_&quot;, ## &quot;resolution_&quot;,resolution, &quot;_&quot;, &quot;k_&quot;, k_param, &quot;.pdf&quot;))
+
+# save to disk
+#walk2(subsample_idents_list2$file_name, subsample_idents_list2$plot, ggsave, width = 10, height = 6.5)</code></pre>
+<p>From the Jaccard raincloud plot, cluster 0,5 (res = 0.1) have dropped jaccard similarity index. cluster 4,6 (res = 0.1) also have dropped jaccard similarity index, suggesting that the orginal cluster 0 and cluster 4 (res - 0.05) should not be further splitted.</p>
+<p>Increasing resolution will always give more clusters and whenever we observe a bimodal distribution of jaccard in a cluster when increasing the resolution, it indicates this cluster can be merged with a different cluster in the resampling and reclustering procedure.</p>
+</div>
+<div id="assign-stable-clusters" class="section level3">
+<h3>Assign stable clusters</h3>
+<p>As a rule of thumb, clusters with a mean/median stability score less than 0.6 should be considered unstable. scores between 0.6 and 0.75 indicate that the cluster is measuring a pattern in the data. clusters with stability score greater than 0.85 are highly stable (Zumel and Mount 2014). This task can be achieved using AssignStableCluster function in our R package. We observed for some datasets, the jaccard index follows a bimodal distribution, so the mean or median may not be representative. As an alternative, we also calculate the percentage of subsampling with a jaccard greater than a cutoff (e.g. 0.85), which can be used to check stability assessments.</p>
+<pre class="r"><code>## for one set of parameter: k=8, res=0.6, pc = 20
+## return a list
+AssignStableCluster(subsample_idents_list$data[[55]]$original_ident,
+                    subsample_idents_list$data[[55]]$recluster_ident,
+                    jaccard_cutoff = 0.8,
+                    method = &quot;jaccard_percent&quot;, 
+                    percent_cutoff = 0.8)</code></pre>
+<pre><code>$jaccardIndex
+# A tibble: 100 x 5
+     `0`   `1`   `2`   `3`   `4`
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 0.998 0.994     1 0.993 0.997
+ 2 1     0.999     1 0.998 1    
+ 3 0.999 1         1 0.998 1    
+ 4 0.997 0.994     1 0.989 1    
+ 5 0.998 0.997     1 0.996 1    
+ 6 0.999 0.999     1 1     1    
+ 7 0.999 1         1 0.998 1    
+ 8 0.998 0.997     1 0.992 1    
+ 9 0.999 1         1 0.998 1    
+10 0.999 1         1 0.998 1    
+# … with 90 more rows
+
+$stable_cluster
+   0    1    2    3    4 
+TRUE TRUE TRUE TRUE TRUE 
+
+$number_of_stable_cluster
+[1] 5
+
+$stable_index
+0 1 2 3 4 
+1 1 1 1 1 </code></pre>
+<pre class="r"><code># ?AssignStableCluster
+## for all sets of parameters
+stable_clusters&lt;- subsample_idents_list %&gt;%
+  mutate(stable_cluster = map(data, ~ AssignStableCluster(.x$original_ident,
+                                                          .x$recluster_ident,
+                                                          jaccard_cutoff = 0.8,
+                                                          method = &quot;jaccard_percent&quot;, 
+                                                          percent_cutoff = 0.8)))</code></pre>
+</div>
+<div id="plot-scatter-plot-for-different-parameters-sets" class="section level3">
+<h3>plot scatter plot for different parameters sets</h3>
+<p>with y axis representing the number of stable clusters and total number of clusters.</p>
+<pre class="r"><code>ParameterSetScatterPlot(stable_clusters = stable_clusters,
+                        fullsample_idents = fullsample_idents,
+                        x_var = &quot;k_param&quot;,
+                        y_var = &quot;number&quot;,
+                        facet_rows = &quot;resolution&quot;,
+                        facet_cols = &quot;pc&quot;)</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ParameterSetScatterPlot(stable_clusters = stable_clusters,
+                        fullsample_idents = fullsample_idents,
+                        x_var = &quot;resolution&quot;,
+                        y_var = &quot;number&quot;,
+                        facet_rows = &quot;k_param&quot;,
+                        facet_cols = &quot;pc&quot;)</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-11-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We see there are multiple parameter sets generate the optimal 5 clusters. This is a very artifical dataset. The plot looks more informative for real dataset.</p>
+</div>
+<div id="calculate-percentage-of-cells-in-stable-clusters" class="section level3">
+<h3>Calculate percentage of cells in stable clusters</h3>
+<pre class="r"><code>#?CalculatePercentCellInStable
+
+stable_and_full&lt;- left_join(stable_clusters, fullsample_idents)
+CalculatePercentCellInStable(stable_and_full$original_ident_full[[1]],
+                             stable_and_full$stable_cluster[[1]]$stable_cluster)</code></pre>
+<pre><code>[1] 0.3177642</code></pre>
+<pre class="r"><code># as expected, all clusters are stable, and the percentage should be 100%
+CalculatePercentCellInStable(stable_and_full$original_ident_full[[55]],
+                             stable_and_full$stable_cluster[[55]]$stable_cluster)</code></pre>
+<pre><code>[1] 1</code></pre>
+<pre class="r"><code>stable_and_full&lt;- stable_and_full %&gt;% 
+  mutate(precentage_in_stable = map2_dbl(original_ident_full, stable_cluster,
+                                            function(x, y) CalculatePercentCellInStable(x,                                                                                      y$stable_cluster)))</code></pre>
+</div>
+<div id="plot-percentage-cells-in-stable-cluster" class="section level3">
+<h3>plot percentage cells in stable cluster</h3>
+<p>The <code>ParameterSetScatterPlot</code> function will calculate the percentage of cells in stable clusters and plot a scatter/line plot.</p>
+<pre class="r"><code>ParameterSetScatterPlot(stable_clusters = stable_clusters,
+                        fullsample_idents = fullsample_idents,
+                        x_var = &quot;k_param&quot;,
+                        y_var = &quot;percentage&quot;,
+                        facet_rows = &quot;resolution&quot;,
+                        facet_cols = &quot;pc&quot;) +
+  ggtitle(&quot;percentage of cells in stable clusters&quot;)</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.5.1 (2018-07-02)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS High Sierra 10.13.6
+
+Matrix products: default
+BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] patchwork_0.0.1        forcats_0.4.0          stringr_1.4.0         
+ [4] dplyr_0.8.3            purrr_0.3.2            readr_1.3.1           
+ [7] tidyr_1.0.0            tibble_2.1.3           ggplot2_3.1.0         
+[10] tidyverse_1.2.1        scclusteval_0.0.0.9000 Seurat_3.0.2          
+
+loaded via a namespace (and not attached):
+  [1] Rtsne_0.15           colorspace_1.4-1     rjson_0.2.20        
+  [4] ellipsis_0.2.0.1     ggridges_0.5.1       rprojroot_1.3-2     
+  [7] circlize_0.4.7       GlobalOptions_0.1.0  fs_1.2.6            
+ [10] clue_0.3-57          rstudioapi_0.10      listenv_0.7.0       
+ [13] npsurv_0.4-0         ggrepel_0.8.0        fansi_0.4.0         
+ [16] lubridate_1.7.4      xml2_1.2.0           codetools_0.2-16    
+ [19] splines_3.5.1        R.methodsS3_1.7.1    lsei_1.2-0          
+ [22] knitr_1.21           jsonlite_1.6         workflowr_1.4.0     
+ [25] broom_0.5.2          ica_1.0-2            cluster_2.0.7-1     
+ [28] png_0.1-7            R.oo_1.22.0          sctransform_0.2.0   
+ [31] compiler_3.5.1       httr_1.4.0           backports_1.1.3     
+ [34] assertthat_0.2.0     Matrix_1.2-15        lazyeval_0.2.1      
+ [37] cli_1.0.1            htmltools_0.3.6      tools_3.5.1         
+ [40] rsvd_1.0.0           igraph_1.2.2         gtable_0.2.0        
+ [43] glue_1.3.1           RANN_2.6             reshape2_1.4.3      
+ [46] Rcpp_1.0.2           cellranger_1.1.0     vctrs_0.2.3         
+ [49] gdata_2.18.0         ape_5.2              nlme_3.1-137        
+ [52] gbRd_0.4-11          lmtest_0.9-36        xfun_0.4            
+ [55] globals_0.12.4       rvest_0.3.2          lifecycle_0.1.0     
+ [58] irlba_2.3.2          gtools_3.8.1         future_1.10.0       
+ [61] MASS_7.3-51.1        zoo_1.8-4            scales_1.0.0        
+ [64] hms_0.5.3            parallel_3.5.1       RColorBrewer_1.1-2  
+ [67] ComplexHeatmap_2.1.0 yaml_2.2.0           reticulate_1.10     
+ [70] pbapply_1.3-4        gridExtra_2.3        stringi_1.2.4       
+ [73] caTools_1.17.1.1     bibtex_0.4.2         shape_1.4.4         
+ [76] Rdpack_0.10-1        SDMTools_1.1-221     rlang_0.4.5         
+ [79] pkgconfig_2.0.2      bitops_1.0-6         evaluate_0.12       
+ [82] lattice_0.20-38      ROCR_1.0-7           htmlwidgets_1.3     
+ [85] labeling_0.3         cowplot_0.9.3        tidyselect_0.2.5    
+ [88] plyr_1.8.4           magrittr_1.5         R6_2.3.0            
+ [91] gplots_3.0.1         generics_0.0.2       pillar_1.3.1        
+ [94] haven_2.0.0          withr_2.1.2          fitdistrplus_1.0-11 
+ [97] survival_2.43-3      future.apply_1.0.1   tsne_0.1-3          
+[100] modelr_0.1.2         crayon_1.3.4         utf8_1.1.4          
+[103] KernSmooth_2.23-15   plotly_4.8.0         rmarkdown_1.11      
+[106] GetoptLong_0.1.7     grid_3.5.1           readxl_1.2.0        
+[109] data.table_1.11.8    git2r_0.23.0         metap_1.0           
+[112] digest_0.6.18        R.utils_2.7.0        munsell_0.5.0       
+[115] viridisLite_0.3.0   </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
