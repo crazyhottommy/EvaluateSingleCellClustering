@@ -405,7 +405,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/crazyhottommy/scRNA-seq-workshop-Fall-2019">
+  <a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering">
     <span class="fa fa-github"></span>
      
     Source code
@@ -543,10 +543,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongefeef5e"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> efeef5e </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomcrazyhottommyEvaluateSingleCellClusteringtreeec7b62261c90af8c27d09bd72bffa6b7e5b5926atargetblankec7b622a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/tree/ec7b62261c90af8c27d09bd72bffa6b7e5b5926a" target="_blank">ec7b622</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongefeef5e" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomcrazyhottommyEvaluateSingleCellClusteringtreeec7b62261c90af8c27d09bd72bffa6b7e5b5926atargetblankec7b622a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -564,11 +564,6 @@ Untracked files:
     Untracked:  data/pbmc_5k_v3.rds
     Untracked:  data/pbmc_5k_v3_label_transfered_from_10k.rds
     Untracked:  data/sc_mixology/
-    Untracked:  docs/figure/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
-    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -581,9 +576,69 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the R Markdown and HTML files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view them.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/ec7b62261c90af8c27d09bd72bffa6b7e5b5926a/analysis/mixture_tidy_idents.Rmd" target="_blank">ec7b622</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+<td>
+wflow_publish(“analysis/mixture_tidy_idents.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/crazyhottommy/EvaluateSingleCellClustering/f13f22124b44b8dbd106b2a368267620cd91e678/docs/mixture_tidy_idents.html" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+<td>
+Build site.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -609,6 +664,43 @@ fullsample_idents&lt;- readRDS(&quot;data/sc_mixology/gather_full_sample.rds&quo
 <pre class="r"><code>## how many PCs to include
 ElbowPlot(sc_10x_5cl_seurat)</code></pre>
 <p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
+Past versions of unnamed-chunk-2-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/mixture_tidy_idents.Rmd/unnamed-chunk-2-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code># a tibble with a list column
 fullsample_idents</code></pre>
 <pre><code># A tibble: 210 x 4
@@ -650,19 +742,132 @@ PairWiseJaccardSetsHeatmap(fullsample_idents$original_ident_full[[55]],
                            fullsample_idents$original_ident_full[[60]],
                            show_row_dend = F, show_column_dend = F,
                            cluster_row = F, cluster_column =F)</code></pre>
-<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;" /> cluster 4 split into cluster 4 and cluster 6 cluster 0 split into cluster 0 and 5</p>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-2">
+Past versions of unnamed-chunk-2-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/mixture_tidy_idents.Rmd/unnamed-chunk-2-2.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>cluster 4 split into cluster 4 and cluster 6 cluster 0 split into cluster 0 and 5</p>
 <pre class="r"><code>## x-axis is resolution of 0.3, and y-axis is resolution of 0.05
 PairWiseJaccardSetsHeatmap(fullsample_idents$original_ident_full[[55]],
                            fullsample_idents$original_ident_full[[70]],
                            show_row_dend = F, show_column_dend = F,
                            cluster_row = F, cluster_column =F)</code></pre>
-<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /> cluster 4 split into cluster 4,7 cluster 2 split into cluster 2,8 cluster 1 split into cluster 1,5</p>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
+Past versions of unnamed-chunk-3-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-3-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/mixture_tidy_idents.Rmd/unnamed-chunk-3-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>cluster 4 split into cluster 4,7 cluster 2 split into cluster 2,8 cluster 1 split into cluster 1,5</p>
 <pre class="r"><code>## x-axis is resolution of 0.3, and y-axis is resolution of 0.1
 PairWiseJaccardSetsHeatmap(fullsample_idents$original_ident_full[[60]],
                            fullsample_idents$original_ident_full[[70]],
                            show_row_dend = F, show_column_dend = F,
                            cluster_row = F, cluster_column =F)</code></pre>
 <p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
+Past versions of unnamed-chunk-4-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/mixture_tidy_idents.Rmd/unnamed-chunk-4-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>We see as we increase the resolution, the number of clusters increase.</p>
 <p>Let’s check how the clusters are splitting when we increase the resolution.</p>
 <pre class="r"><code>## PC= 15, k.param = 20, resolution = 0.05
@@ -712,6 +917,185 @@ p4&lt;- DimPlot(sc_10x_5cl_seurat, reduction = &quot;umap&quot;, group.by = &quo
 
 p1 + p2 + p3 + p4</code></pre>
 <p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
+Past versions of unnamed-chunk-5-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-5-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/mixture_tidy_idents.Rmd/unnamed-chunk-5-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="differential-gene-expression-and-pathway-analysis" class="section level3">
+<h3>differential gene expression and pathway analysis</h3>
+<p>With resolution of 0.3, the A549 split into cluster 0 and 6; the H1957 cells split into cluster 7 and 4. Let’s see if any pathways are enriched in the subclusters.</p>
+<pre class="r"><code>## for gsea to work, I need all the genes without filtering
+library(presto)
+library(fgsea)
+library(msigdbr)
+
+markers_cluster_0_vs_6 &lt;- wilcoxauc(sc_10x_5cl_seurat,&quot;RNA_snn_res.0.3&quot;, assay = &quot;data&quot;, groups_use = c(&#39;0&#39;, &#39;6&#39; ))
+
+head(markers_cluster_0_vs_6)</code></pre>
+<pre><code>  feature group     avgExpr         logFC statistic       auc         pval
+1 COL27A1     0 0.031760692 -0.0116538526  115528.0 0.5103278 3.063853e-01
+2 SLC35B1     0 0.683947081  0.1956584920  138596.0 0.6122272 1.517886e-07
+3  POLR3D     0 0.185635993  0.0006077942  123564.0 0.5458256 1.362686e-02
+4    SMC4     0 0.745252987  0.1838241768  132952.0 0.5872957 4.173436e-05
+5   MAST2     0 0.050445438  0.0108938014  121558.5 0.5369666 1.948823e-03
+6 FAM167B     0 0.005223014  0.0052230139  114620.0 0.5063168 9.401081e-02
+          padj    pct_in   pct_out
+1 3.778442e-01  8.454810  5.909091
+2 1.167106e-06 87.074830 51.363636
+3 2.690672e-02 39.941691 23.181818
+4 1.827196e-04 80.660836 54.545455
+5 5.153427e-03 13.022352  5.000000
+6 1.384668e-01  1.263362  0.000000</code></pre>
+<pre class="r"><code>m_df&lt;-  msigdbr(species = &quot;Homo sapiens&quot;)
+
+#m_list_c2&lt;- m_df %&gt;% filter(gs_cat == &quot;C2&quot;, gs_subcat == &quot;CP:REACTOME&quot;) %&gt;%
+#  split(x = .$gene_symbol, f= .$gs_name)
+
+# hallmark gene set
+m_list_c2&lt;- m_df %&gt;% filter(gs_cat == &quot;H&quot;) %&gt;%
+  split(x = .$gene_symbol, f= .$gs_name)
+
+ranks_0&lt;- markers_cluster_0_vs_6 %&gt;%
+  filter(group == &quot;0&quot;) %&gt;%
+  arrange(desc(auc)) %&gt;%
+  select(feature, auc) %&gt;%
+  deframe()
+
+ranks_6&lt;- markers_cluster_0_vs_6 %&gt;%
+  filter(group == &quot;6&quot;) %&gt;%
+  arrange(desc(auc)) %&gt;%
+  select(feature, auc) %&gt;%
+  deframe()
+
+fgsea_res0&lt;-fgsea(pathways = m_list_c2, stats = ranks_0, nperm = 1000)
+fgsea_res6&lt;-fgsea(pathways = m_list_c2, stats = ranks_6, nperm = 1000)
+
+ggplot(fgsea_res0 %&gt;% mutate(pathway = gsub(&quot;HALLMARK_&quot;, &quot;&quot;, pathway)), aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill= padj &lt; 0.05)) +
+  coord_flip() +
+  scale_fill_manual(values= c(&quot;#00BFC4&quot;, &quot;#F8766D&quot;)) + 
+  labs(x=&quot;Pathway&quot;, y=&quot;Normalized Enrichment Score&quot;,
+       title=&quot;cluster 0 in A549 cells&quot;) + 
+  theme_minimal()</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
+Past versions of unnamed-chunk-6-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/mixture_tidy_idents.Rmd/unnamed-chunk-6-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>ggplot(fgsea_res6 %&gt;% mutate(pathway = gsub(&quot;HALLMARK_&quot;, &quot;&quot;, pathway)), aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill= padj &lt; 0.05)) +
+  coord_flip() +
+  scale_fill_manual(values= c(&quot;#00BFC4&quot;, &quot;#F8766D&quot;)) + 
+  labs(x=&quot;Pathway&quot;, y=&quot;Normalized Enrichment Score&quot;,
+       title=&quot;cluster 6 in A549 cells&quot;) + 
+  theme_minimal()</code></pre>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-6-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-2">
+Past versions of unnamed-chunk-6-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/mixture_tidy_idents.Rmd/unnamed-chunk-6-2.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Different pathways are enriched indicating that those are two sub-populations. e.g. Oxdative phosphorylation/glycolysis pathway is highly activated in cluster 0, but highly negatively enriched in cluster 6.</p>
+<p>Note that even cell lines are not composed of pure populations of cells (Kinker et al., n.d.). There are usually cells in different cell cycle stages in typical cell cultures, and cells with different ploidies in cancer cell lines.</p>
 </div>
 <div id="some-other-visualizations" class="section level3">
 <h3>Some other visualizations</h3>
@@ -730,11 +1114,11 @@ purrr::map_dbl(fullsample_idents$original_ident_full, function(x) length(unique(
 <pre class="r"><code>## how many cells identity change from one cluster to another
 ClusterIdentityChordPlot(fullsample_idents$original_ident_full[[55]],
                            fullsample_idents$original_ident_full[[60]])</code></pre>
-<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>## cluster size plot
 ClusterSizeBarplot(fullsample_idents$original_ident_full[[55]]) +
   theme_classic()</code></pre>
-<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-6-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-7-2.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>## change idents to cluster id when resolution is 0.1
 Idents(sc_10x_5cl_seurat)&lt;- sc_10x_5cl_seurat@meta.data$RNA_snn_res.0.1
 
@@ -758,7 +1142,7 @@ silhouette_scores&lt;- CalculateSilhouette(sc_10x_5cl_seurat, dims = 1:15)
 sil_p2&lt;- SilhouetteRainCloudPlot(silhouette_scores)
 
 sil_p1 + sil_p2</code></pre>
-<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-6-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-7-3.png" width="672" style="display: block; margin: auto;" /></p>
 <p>From the jaccard heatmap we know that: cluster 4 split (res = 0.05) into cluster 4 and cluster 6 (res = 0.1) cluster 0 split (res = 0.05) into cluster 0 and 5 (res = 0.1)</p>
 <p>cluster 0 and cluster 5 have on average smaller silhouette score than the original cluster 0, suggesting that it is not a good idea to split A549 cells.</p>
 <p>cluster 4 and 6 seems to have a higher silhouette score than the orignal cluster 4, suggesting that H1975 cells can be future split into two subclusters. From the <code>UMAP</code> plot, it does suggest cluster 4 and 6 are seperated.</p>
@@ -860,7 +1244,44 @@ AssignHighestJaccard(subsample_idents_list$data[[55]]$original_ident,
                           subsample_idents_list$data[[55]]$recluster_ident) + 
         geom_hline(yintercept = c(0.6, 0.75), linetype = 2) +
         xlab(&quot;cluster id w/ k=20 res=0.1 pc=15&quot;) </code></pre>
-<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/mixture_tidy_idents.Rmd/unnamed-chunk-9-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>with resolution of 0.05, Seurat finds 5 clusters which is optimal given that 5 cancer cell lines were mixed together. The jaccard indices are close to 1 for all clusters after subsampling and reclustering suggesting all 5 clusters are quite stable.</p>
 </div>
 <div id="make-a-raincloud-plot-for-every-combination-of-the-parameters." class="section level3">
@@ -879,7 +1300,7 @@ p2&lt;- subsample_idents_list2 %&gt;%
 
 
 p1/ p2</code></pre>
-<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>## to save to disk, give a name for each pdf
 ## subsample_idents_list2&lt;- mutate(subsample_idents_list2, file_name = 
 ##                                 paste0(&quot;PC_&quot;,pc, &quot;_&quot;, ## &quot;resolution_&quot;,resolution, &quot;_&quot;, &quot;k_&quot;, k_param, &quot;.pdf&quot;))
@@ -943,14 +1364,14 @@ stable_clusters&lt;- subsample_idents_list %&gt;%
                         y_var = &quot;number&quot;,
                         facet_rows = &quot;resolution&quot;,
                         facet_cols = &quot;pc&quot;)</code></pre>
-<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ParameterSetScatterPlot(stable_clusters = stable_clusters,
                         fullsample_idents = fullsample_idents,
                         x_var = &quot;resolution&quot;,
                         y_var = &quot;number&quot;,
                         facet_rows = &quot;k_param&quot;,
                         facet_cols = &quot;pc&quot;)</code></pre>
-<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-11-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-12-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We see there are multiple parameter sets generate the optimal 5 clusters. This is a very artifical dataset. The plot looks more informative for real dataset.</p>
 </div>
 <div id="calculate-percentage-of-cells-in-stable-clusters" class="section level3">
@@ -979,7 +1400,7 @@ CalculatePercentCellInStable(stable_and_full$original_ident_full[[55]],
                         facet_rows = &quot;resolution&quot;,
                         facet_cols = &quot;pc&quot;) +
   ggtitle(&quot;percentage of cells in stable clusters&quot;)</code></pre>
-<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/mixture_tidy_idents.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1003,10 +1424,12 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] patchwork_0.0.1        forcats_0.4.0          stringr_1.4.0         
- [4] dplyr_0.8.3            purrr_0.3.2            readr_1.3.1           
- [7] tidyr_1.0.0            tibble_2.1.3           ggplot2_3.1.0         
-[10] tidyverse_1.2.1        scclusteval_0.0.0.9000 Seurat_3.0.2          
+ [1] msigdbr_6.2.1          fgsea_1.8.0            presto_1.0.0          
+ [4] Rcpp_1.0.2             patchwork_0.0.1        forcats_0.4.0         
+ [7] stringr_1.4.0          dplyr_0.8.3            purrr_0.3.2           
+[10] readr_1.3.1            tidyr_1.0.0            tibble_2.1.3          
+[13] ggplot2_3.1.0          tidyverse_1.2.1        scclusteval_0.0.0.9000
+[16] Seurat_3.0.2          
 
 loaded via a namespace (and not attached):
   [1] Rtsne_0.15           colorspace_1.4-1     rjson_0.2.20        
@@ -1024,7 +1447,7 @@ loaded via a namespace (and not attached):
  [37] cli_1.0.1            htmltools_0.3.6      tools_3.5.1         
  [40] rsvd_1.0.0           igraph_1.2.2         gtable_0.2.0        
  [43] glue_1.3.1           RANN_2.6             reshape2_1.4.3      
- [46] Rcpp_1.0.2           cellranger_1.1.0     vctrs_0.2.3         
+ [46] fastmatch_1.1-0      cellranger_1.1.0     vctrs_0.2.3         
  [49] gdata_2.18.0         ape_5.2              nlme_3.1-137        
  [52] gbRd_0.4-11          lmtest_0.9-36        xfun_0.4            
  [55] globals_0.12.4       rvest_0.3.2          lifecycle_0.1.0     
@@ -1033,21 +1456,21 @@ loaded via a namespace (and not attached):
  [64] hms_0.5.3            parallel_3.5.1       RColorBrewer_1.1-2  
  [67] ComplexHeatmap_2.1.0 yaml_2.2.0           reticulate_1.10     
  [70] pbapply_1.3-4        gridExtra_2.3        stringi_1.2.4       
- [73] caTools_1.17.1.1     bibtex_0.4.2         shape_1.4.4         
- [76] Rdpack_0.10-1        SDMTools_1.1-221     rlang_0.4.5         
- [79] pkgconfig_2.0.2      bitops_1.0-6         evaluate_0.12       
- [82] lattice_0.20-38      ROCR_1.0-7           htmlwidgets_1.3     
- [85] labeling_0.3         cowplot_0.9.3        tidyselect_0.2.5    
- [88] plyr_1.8.4           magrittr_1.5         R6_2.3.0            
- [91] gplots_3.0.1         generics_0.0.2       pillar_1.3.1        
- [94] haven_2.0.0          withr_2.1.2          fitdistrplus_1.0-11 
- [97] survival_2.43-3      future.apply_1.0.1   tsne_0.1-3          
-[100] modelr_0.1.2         crayon_1.3.4         utf8_1.1.4          
-[103] KernSmooth_2.23-15   plotly_4.8.0         rmarkdown_1.11      
-[106] GetoptLong_0.1.7     grid_3.5.1           readxl_1.2.0        
-[109] data.table_1.11.8    git2r_0.23.0         metap_1.0           
-[112] digest_0.6.18        R.utils_2.7.0        munsell_0.5.0       
-[115] viridisLite_0.3.0   </code></pre>
+ [73] caTools_1.17.1.1     BiocParallel_1.16.2  bibtex_0.4.2        
+ [76] shape_1.4.4          Rdpack_0.10-1        SDMTools_1.1-221    
+ [79] rlang_0.4.5          pkgconfig_2.0.2      bitops_1.0-6        
+ [82] evaluate_0.12        lattice_0.20-38      ROCR_1.0-7          
+ [85] labeling_0.3         htmlwidgets_1.3      cowplot_0.9.3       
+ [88] tidyselect_0.2.5     plyr_1.8.4           magrittr_1.5        
+ [91] R6_2.3.0             gplots_3.0.1         generics_0.0.2      
+ [94] pillar_1.3.1         haven_2.0.0          whisker_0.3-2       
+ [97] withr_2.1.2          fitdistrplus_1.0-11  survival_2.43-3     
+[100] future.apply_1.0.1   tsne_0.1-3           modelr_0.1.2        
+[103] crayon_1.3.4         utf8_1.1.4           KernSmooth_2.23-15  
+[106] plotly_4.8.0         rmarkdown_1.11       GetoptLong_0.1.7    
+[109] grid_3.5.1           readxl_1.2.0         data.table_1.11.8   
+[112] git2r_0.23.0         metap_1.0            digest_0.6.18       
+[115] R.utils_2.7.0        munsell_0.5.0        viridisLite_0.3.0   </code></pre>
 </div>
 </div>
 </div>
