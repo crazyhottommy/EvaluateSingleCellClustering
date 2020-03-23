@@ -106,6 +106,66 @@ p4<- DimPlot(sc_10x_5cl_seurat, reduction = "umap", group.by = "cell_line", labe
 p1 + p2 + p3 + p4
 ```
 
+### differential gene expression and pathway analysis
+
+With resolution of 0.3,  the A549 split into cluster 0 and 6; the H1957 cells split into cluster 7 and 4.
+Let's see if any pathways are enriched in the subclusters.
+
+```{r}
+## for gsea to work, I need all the genes without filtering
+library(presto)
+library(fgsea)
+library(msigdbr)
+
+markers_cluster_0_vs_6 <- wilcoxauc(sc_10x_5cl_seurat,"RNA_snn_res.0.3", assay = "data", groups_use = c('0', '6' ))
+
+head(markers_cluster_0_vs_6)
+
+m_df<-  msigdbr(species = "Homo sapiens")
+
+#m_list_c2<- m_df %>% filter(gs_cat == "C2", gs_subcat == "CP:REACTOME") %>%
+#  split(x = .$gene_symbol, f= .$gs_name)
+
+# hallmark gene set
+m_list_c2<- m_df %>% filter(gs_cat == "H") %>%
+  split(x = .$gene_symbol, f= .$gs_name)
+
+ranks_0<- markers_cluster_0_vs_6 %>%
+  filter(group == "0") %>%
+  arrange(desc(auc)) %>%
+  select(feature, auc) %>%
+  deframe()
+
+ranks_6<- markers_cluster_0_vs_6 %>%
+  filter(group == "6") %>%
+  arrange(desc(auc)) %>%
+  select(feature, auc) %>%
+  deframe()
+
+fgsea_res0<-fgsea(pathways = m_list_c2, stats = ranks_0, nperm = 1000)
+fgsea_res6<-fgsea(pathways = m_list_c2, stats = ranks_6, nperm = 1000)
+
+ggplot(fgsea_res0 %>% mutate(pathway = gsub("HALLMARK_", "", pathway)), aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill= padj < 0.05)) +
+  coord_flip() +
+  scale_fill_manual(values= c("#00BFC4", "#F8766D")) + 
+  labs(x="Pathway", y="Normalized Enrichment Score",
+       title="cluster 0 in A549 cells") + 
+  theme_minimal()
+
+ggplot(fgsea_res6 %>% mutate(pathway = gsub("HALLMARK_", "", pathway)), aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill= padj < 0.05)) +
+  coord_flip() +
+  scale_fill_manual(values= c("#00BFC4", "#F8766D")) + 
+  labs(x="Pathway", y="Normalized Enrichment Score",
+       title="cluster 6 in A549 cells") + 
+  theme_minimal()
+```
+
+Different pathways are enriched indicating that those are two sub-populations.
+e.g. Oxdative phosphorylation/glycolysis pathway is highly activated in cluster 0, but highly negatively enriched in cluster 6.
+
+Note that even cell lines are not composed of pure populations of cells (Kinker et al., n.d.). There are usually cells in different cell cycle stages in typical cell cultures, and cells with different ploidies in cancer cell lines.
 
 ### Some other visualizations 
 
