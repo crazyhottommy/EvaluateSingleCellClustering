@@ -405,7 +405,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/crazyhottommy/scRNA-seq-workshop-Fall-2019">
+  <a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering">
     <span class="fa fa-github"></span>
      
     Source code
@@ -543,10 +543,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongefeef5e"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> efeef5e </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomcrazyhottommyEvaluateSingleCellClusteringtreefca52edbe97f14f67c66daf8c648b04d74d97f85targetblankfca52eda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/tree/fca52edbe97f14f67c66daf8c648b04d74d97f85" target="_blank">fca52ed</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongefeef5e" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomcrazyhottommyEvaluateSingleCellClusteringtreefca52edbe97f14f67c66daf8c648b04d74d97f85targetblankfca52eda" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -564,10 +564,6 @@ Untracked files:
     Untracked:  data/pbmc_5k_v3.rds
     Untracked:  data/pbmc_5k_v3_label_transfered_from_10k.rds
     Untracked:  data/sc_mixology/
-    Untracked:  docs/figure/
-
-Unstaged changes:
-    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -611,7 +607,41 @@ Message
 Rmd
 </td>
 <td>
-efeef5e
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/fca52edbe97f14f67c66daf8c648b04d74d97f85/analysis/5k_pbmc.Rmd" target="_blank">fca52ed</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+<td>
+wflow_publish(“analysis/5k_pbmc.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/crazyhottommy/EvaluateSingleCellClustering/f13f22124b44b8dbd106b2a368267620cd91e678/docs/5k_pbmc.html" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/efeef5eef18a93ed90e5890f8f9d469de2b778f9/analysis/5k_pbmc.Rmd" target="_blank">efeef5e</a>
 </td>
 <td>
 Ming Tang
@@ -653,6 +683,43 @@ fullsample_idents&lt;- readRDS(&quot;data/pbmc/gather_full_sample.rds&quot;)</co
 <pre class="r"><code>## how many PCs to include
 ElbowPlot(pbmc, ndims = 40)</code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
+Past versions of unnamed-chunk-2-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-2-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code># a tibble with a list column
 fullsample_idents</code></pre>
 <pre><code># A tibble: 200 x 4
@@ -712,12 +779,86 @@ PairWiseJaccardSetsHeatmap(fullsample_idents$original_ident_full[[8]],
                            show_row_dend = F, show_column_dend = F,
                            cluster_row = F, cluster_column =F)</code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-2">
+Past versions of unnamed-chunk-2-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-2-2.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>## x-axis is k_param = 100, and y-axis is k_param = 8
 PairWiseJaccardSetsHeatmap(fullsample_idents$original_ident_full[[8]],
                            fullsample_idents$original_ident_full[[183]],
                            show_row_dend = F, show_column_dend = F,
                            cluster_row = F, cluster_column =F)</code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-2-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-3">
+Past versions of unnamed-chunk-2-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-2-3.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>The k.param in the k-nearest neighbor algorithm after which a SNN graph is constructed. This parameter determines the resolution of the clustering where a bigger k yields a more interconnected graph and bigger clusters. We see if we increase the k param to 100, we get fewer number of total number of clusters.</p>
 <p>Let’s check how the clusters are splitting when we increase the k.param.</p>
 <p><strong>Note</strong> for 5k pbmc dataset, I used <code>SCTransform()</code> in the Snakemake workflow. It generates more clusters than the previous NormalizeData(), ScaleData(), and FindVariableFeatures() workflow.</p>
@@ -742,33 +883,187 @@ k100_ident&lt;- fullsample_idents %&gt;%
 pbmc&lt;- AddMetaData(pbmc, metadata = k100_ident, col.name = &quot;res0.6_k100&quot;)
 
 
-p1&lt;- DimPlot(pbmc, reduction = &quot;umap&quot;, label = TRUE, group.by = &quot;res0.6_k8&quot;, repel = TRUE) + ggtitle(&quot;k_param 8&quot;)
+p1&lt;- DimPlot(pbmc, reduction = &quot;umap&quot;, label = TRUE, group.by = &quot;res0.6_k8&quot;, repel = TRUE) + ggtitle(&quot;k_param 8&quot;) + NoLegend()
 
-p2&lt;- DimPlot(pbmc, reduction = &quot;umap&quot;, label = TRUE, group.by = &quot;res0.6_k20&quot;, repel = TRUE) + ggtitle(&quot;k_param 20&quot;)
+p2&lt;- DimPlot(pbmc, reduction = &quot;umap&quot;, label = TRUE, group.by = &quot;res0.6_k20&quot;, repel = TRUE) + ggtitle(&quot;k_param 20&quot;) + NoLegend()
 
-p3&lt;- DimPlot(pbmc, reduction = &quot;umap&quot;, label = TRUE, group.by = &quot;res0.6_k100&quot;, repel = TRUE) + ggtitle(&quot;k_param 100&quot;)
+p3&lt;- DimPlot(pbmc, reduction = &quot;umap&quot;, label = TRUE, group.by = &quot;res0.6_k100&quot;, repel = TRUE) + ggtitle(&quot;k_param 100&quot;) + NoLegend()
 
-p4&lt;- DimPlot(pbmc, reduction = &quot;umap&quot;, group.by = &quot;predicted.id&quot;, repel = TRUE, label = TRUE) 
+p4&lt;- DimPlot(pbmc, reduction = &quot;umap&quot;, group.by = &quot;predicted.id&quot;, repel = TRUE, label = TRUE) + NoLegend()
 
-p1 + p2 + p3 + p4</code></pre>
+p1 </code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
+Past versions of unnamed-chunk-3-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-3-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-3-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>p2</code></pre>
+<p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-3-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>p3</code></pre>
+<p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-3-3.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>p4</code></pre>
+<p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-3-4.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code># k = 8
 PairWiseJaccardSetsHeatmap(set_names(pbmc@meta.data$res0.6_k8, nm=colnames(pbmc)),
                            set_names(pbmc@meta.data$predicted.id, nm=colnames(pbmc)),
                            show_row_dend = F, show_column_dend = F,
                            cluster_row = F, cluster_column =F)</code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
+Past versions of unnamed-chunk-4-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-4-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>## we can check agains the transferred labels. k =20
 PairWiseJaccardSetsHeatmap(set_names(pbmc@meta.data$res0.6_k20, nm=colnames(pbmc)),
                            set_names(pbmc@meta.data$predicted.id, nm=colnames(pbmc)),
                            show_row_dend = F, show_column_dend = F,
                            cluster_row = F, cluster_column =F)</code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-4-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-2">
+Past versions of unnamed-chunk-4-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-4-2.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>PairWiseJaccardSetsHeatmap(set_names(pbmc@meta.data$res0.6_k100, nm=colnames(pbmc)),
                            set_names(pbmc@meta.data$predicted.id, nm=colnames(pbmc)),
                            show_row_dend = F, show_column_dend = F,
                            cluster_row = F, cluster_column =F)</code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-4-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-3">
+Past versions of unnamed-chunk-4-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-4-3.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Note that, the transferred cell type from 10k pbmc data to our 5k data may not necessary be the true labels. Nevetherless, when the k_param is big (100), many cell types are merged together.</p>
 </div>
 <div id="some-other-visualizations" class="section level3">
@@ -787,6 +1082,43 @@ sil_p2&lt;- SilhouetteRainCloudPlot(silhouette_scores) + ggtitle(&quot;k_param 2
 
 sil_p1 / sil_p2</code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
+Past versions of unnamed-chunk-5-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-5-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-5-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>cluster 6 (when k_param is 8) split into cluster7,12 when k_param is 20 from the jaccard heatmap above.</p>
 <p>The silhouette width for cluster7,12 is lower than cluster 6 suggesting that k_param=8 is a better option.</p>
 </div>
@@ -839,6 +1171,43 @@ p2&lt;- JaccardRainCloudPlot(subsample_idents_list$data[[83]]$original_ident,
 
 p1 / p2        </code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
+Past versions of unnamed-chunk-6-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-6-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>From the Jaccard raincloud plot, cluster7 and cluster12 have very low jaccard index. This is consistent with the Silhouette widths.</p>
 </div>
 <div id="assign-stable-clusters" class="section level3">
@@ -901,6 +1270,43 @@ stable_clusters&lt;- subsample_idents_list %&gt;%
                         facet_rows = &quot;resolution&quot;,
                         facet_cols = &quot;pc&quot;)</code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-1">
+Past versions of unnamed-chunk-8-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-8-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-8-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="plot-percentage-cells-in-stable-cluster" class="section level3">
 <h3>plot percentage cells in stable cluster</h3>
@@ -913,6 +1319,43 @@ stable_clusters&lt;- subsample_idents_list %&gt;%
                         facet_cols = &quot;pc&quot;) +
   ggtitle(&quot;percentage of cells in stable clusters&quot;)</code></pre>
 <p><img src="figure/5k_pbmc.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/crazyhottommy/EvaluateSingleCellClustering/blob/f13f22124b44b8dbd106b2a368267620cd91e678/docs/figure/5k_pbmc.Rmd/unnamed-chunk-9-1.png" target="_blank">f13f221</a>
+</td>
+<td>
+Ming Tang
+</td>
+<td>
+2020-03-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
