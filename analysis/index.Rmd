@@ -20,11 +20,11 @@ from Allen Brain Institute and you can find the data in the [osf.io](https://osf
 
 * The 5k pbmc scRNAseq dataset was downloaded from 10x website and made into a `Seruat` object.
 
-* The rds file for the 5- cancer cell line mixology dataset is dowloaded from https://github.com/LuyiTian/sc_mixology
+* The Seurat rds file for the 5- cancer cell line mixology dataset is dowloaded from https://github.com/LuyiTian/sc_mixology
 
-* The rds file for the neuron dataset is downloaded from https://satijalab.org/signac/articles/mouse_brain_vignette.html
+* The Seurat rds file for the neuron dataset is downloaded from https://satijalab.org/signac/articles/mouse_brain_vignette.html
 
->You can download the raw data for this experiment from the Allen Institute website, and view the code used to construct this object on [GitHub](https://github.com/satijalab/Integration2019/blob/master/preprocessing_scripts/allen_brain.R). Alternatively, you can download the pre-processed Seurat object [here](https://www.dropbox.com/s/kqsy9tvsklbu7c4/allen_brain.rds?dl=0).
+>You can download the raw data for this experiment from the Allen Institute [website](http://celltypes.brain-map.org/api/v2/well_known_file_download/694413985), and view the code used to construct this object on [GitHub](https://github.com/satijalab/Integration2019/blob/master/preprocessing_scripts/allen_brain.R). Alternatively, you can download the pre-processed Seurat object [here](https://www.dropbox.com/s/kqsy9tvsklbu7c4/allen_brain.rds?dl=0).
 
 Readers can follow the examples of the mixology and pbmc dataset and explore the 
 neuron dataset yourself. Have fun!
