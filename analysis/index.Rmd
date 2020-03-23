@@ -9,14 +9,10 @@ editor_options:
 ---
 
 This is the website for demonstrating how to use the [`scclusteval`](https://github.com/crazyhottommy/scclusteval) R package. This R package
-works with the output from the [Snakemake workflow](https://github.com/crazyhottommy/pyflow_seuratv3_parameter)
+works with the output from the [Snakemake workflow](https://github.com/crazyhottommy/pyflow_seuratv3_parameter).
 
 Readers can download the datasets at https://osf.io/rfbcg/ and 
 follow the analysis in the Rmarkdown files.
-
-You can find the analysis for the mixology dataset and the 5k pbmc dataset in
-the `Content` drop list. We also run the [Snakemake workflow](https://github.com/crazyhottommy/pyflow_seuratv3_parameter) for a neuron dataset
-from Allen Brain Institute and you can find the data in the [osf.io](https://osf.io/rfbcg/) link above.
 
 * The 5k pbmc scRNAseq dataset was downloaded from 10x website and made into a `Seruat` object.
 
@@ -24,7 +20,9 @@ from Allen Brain Institute and you can find the data in the [osf.io](https://osf
 
 * The Seurat rds file for the neuron dataset is downloaded from https://satijalab.org/signac/articles/mouse_brain_vignette.html
 
->You can download the raw data for this experiment from the Allen Institute [website](http://celltypes.brain-map.org/api/v2/well_known_file_download/694413985), and view the code used to construct this object on [GitHub](https://github.com/satijalab/Integration2019/blob/master/preprocessing_scripts/allen_brain.R). Alternatively, you can download the pre-processed Seurat object [here](https://www.dropbox.com/s/kqsy9tvsklbu7c4/allen_brain.rds?dl=0).
+You can find the analysis for the mixology dataset and the 5k pbmc dataset in
+the `Content` drop list. We also run the [Snakemake workflow](https://github.com/crazyhottommy/pyflow_seuratv3_parameter) for a neuron dataset
+from Allen Brain Institute and you can find the data in the [osf.io](https://osf.io/rfbcg/) link above.
 
 Readers can follow the examples of the mixology and pbmc dataset and explore the 
 neuron dataset yourself. Have fun!
