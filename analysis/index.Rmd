@@ -8,4 +8,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+This is the website for demonstrating how to use the [`scclusteval`](https://github.com/crazyhottommy/scclusteval) R pacakge.
+
+Three datasets are used. Readers can download them at https://osf.io/rfbcg/ and 
+follow the analysis in the Rmarkdown files.
